@@ -14,7 +14,7 @@ const posts = [{
 },
 {
     id: "2",
-    description: "poker with dogs ",
+    description: "Poker with dogs ",
     imageLink: "https://gratisography.com/fullsize/gratisography-man-dogs-playing-cards.jpg"
 }]
 

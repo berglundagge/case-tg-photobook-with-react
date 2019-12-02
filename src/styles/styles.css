@@ -42,3 +42,23 @@ h1 {
 figcaption {
     text-align: center;
 }
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.remove-button {
+    flex-basis: 25%;
+    color: white;
+    background-color: #e74c3c;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 13px;
+    border: 2px solid;
+    padding: 10px;
+}
+
