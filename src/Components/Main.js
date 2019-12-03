@@ -1,45 +1,32 @@
 import React, {Component} from 'react'
-import Title from './Title'
-import Wall from './Wall'
+import PhotoWall from './PhotoWall'
 import AddPhoto from './AddPhoto'
-import {Route} from 'react-router-dom'
-
-
-
+import {Route, Link} from 'react-router-dom'
+import Single from './Single'
 class Main extends Component {
-    constructor() {
-        super()
-
-
-    }
-
-
-
+ constructor() {
+ super()
+ }
+ render() {
+ return ( 
  
-    // Render-method i och med det är flera komponenter, endast en komponent =  använd component
-    render() {
-        return  (<div>
-            <Route exact path = "/" render ={() => (
-                <div>
-                <Title title={'photoSHARE'}/>
-                <Wall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate = {this.navigate}/>
-            </div>
-           
-            )}/>
-                <Route path="/AddPhoto" render = {({history}) => (
-
-                 <AddPhoto onAddPhoto={(addedPost) => {
-                   this.addPhoto(addedPost)
-                   history.push('/')
-                }}/>
-                )}/>
-                </div>
-        )
-                     
-    }
+ <div>
+ <h1> 
+ <Link to="/"> photoSHARE </Link> 
+ </h1>
+ <Route exact path = "/" render={() => (
+ <div>
+ <PhotoWall {...this.props} /> 
+ </div>
+ )}/> 
+ <Route path= "/AddPhoto" render = {({history}) => (
+ <AddPhoto {...this.props} onHistory={history}/>
+ )}/>
+ <Route path="/single/:id" render = {(params) => (
+ <Single {...this.props} {...params}/> 
+ )}/>
+ </div>
+ )
+ }
 }
-
-   
-
-
 export default Main

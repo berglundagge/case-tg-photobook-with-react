@@ -12,4 +12,4 @@ const posts = [{
         imageLink: "https://gratisography.com/fullsize/gratisography-man-dogs-playing-cards.jpg"
     }]
 
-export default posts
+export default posts;
