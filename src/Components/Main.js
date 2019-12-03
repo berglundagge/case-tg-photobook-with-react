@@ -20,10 +20,42 @@ const posts = [{
 
 
 class Main extends Component {
+    constructor() {
+        super()
+        this.state = {
+            posts: [{
+                id: "0",
+                description: "Man with banjo",
+                imageLink: "https://gratisography.com/fullsize/gratisography-63H.jpg"
+            }, {
+                id: "1",
+                description: "Ukulele",
+                imageLink: "https://gratisography.com/fullsize/gratisography-420H.jpg"  
+            },
+            {
+                id: "2",
+                description: "Poker with dogs ",
+                imageLink: "https://gratisography.com/fullsize/gratisography-man-dogs-playing-cards.jpg"
+            }]
+            
+        }
+
+        this.removePhoto = this.removePhoto.bind(this);
+    }
+
+    removePhoto(postRemoved) {
+
+        this.setState((state) => ({
+            posts: state.posts.filter(post => post!==postRemoved)
+        }))
+
+    }
+
+
     render() {
         return  <div>
                 <Title title={'photoSHARE'}/>
-                <Wall posts={posts}/>
+                <Wall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
                 </div>           
     }
 }
